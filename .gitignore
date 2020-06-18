@@ -34,3 +34,12 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore idea config
+/.idea
+
+# ignore rake tasks
+/.rakeTasks
+
+# Ignore generators
+/.generators

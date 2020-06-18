@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
   def show
-    @articles = @user.articles = Article.paginate(page: params[:page], per_page: 3)
+    @articles = Article.where(:user_id => @user.id).paginate(page: params[:page], per_page: 3)
   end
 
   def destroy
