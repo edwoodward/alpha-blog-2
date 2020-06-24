@@ -10,6 +10,7 @@
           <div class="card-body">
 
             <p class="card-text  text-left"><%= simple_format(@article.description) %></p>
+            <p class="card-text  text-left"><%= simple_format(@article.post) %></p>
             <% if @article.categories.any? %>
               <p>Categories: <%= render @article.categories %> </p>
             <% end %>

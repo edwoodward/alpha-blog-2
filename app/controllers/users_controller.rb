@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :require_admin, only: [:destroy]
 
   def show
-    @articles = @user.articles = Article.paginate(page: params[:page], per_page: 3)
+    @articles = Article.where(:user_id => @user.id).paginate(page: params[:page], per_page: 3)
   end
 
   def destroy
@@ -24,6 +24,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    #make first user the admin by default
+    if User.all.count == 0
+      @user.admin = true
+    end
+
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to the Alpha Blog #{@user.username}. You have successfully signed up."
