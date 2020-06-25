@@ -1,8 +1,4 @@
-<div class="container" id="home-container">
-  <h3 class="display-4 text-center">Search Results</h3>
-  <div class="col-8 mt-4">
-    <% @articles.each do |article| %>
-      <p><%= link_to article.title, article_path(article) %></p>
-    <% end %>
-  </div>
-</div>
+<h1 class="text-center mt-4">Search Results</h1>
+
+
+<%= render 'articles/article', obj: @articles %>

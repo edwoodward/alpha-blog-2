@@ -1,8 +1,7 @@
 module ApplicationHelper
 
   def image_for(user)
-    num = Random.rand(1...12)
-    image_tag 'image' + num.inspect, alt: user.username, class: "rounded shadow mx-auto d-block"
+    image_tag 'image' + user.id.inspect, alt: user.username, class: "rounded shadow mx-auto d-block"
   end
 
   def current_user
